@@ -15,37 +15,66 @@ namespace ProAgil.WebApi.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<Evento>> Get()
         {
-
             return new Evento[] {
                 new Evento(){
                             EventoId= 1,
                             Tema="Angular e .net Core",
                             Local="São Paulo",
                             Lote="1º Lote",
-                            QtdPessoas=2000
+                            QtdPessoas=2000,
+                            DataEvento= DateTime.Now.AddDays(2).ToShortDateString()
                     },
                 new Evento(){
                             EventoId= 2,
                             Tema="Angular e .net Core",
                             Local="São Paulo",
                             Lote="1º Lote",
-                            QtdPessoas=2000
+                            QtdPessoas=2000,
+                            DataEvento= DateTime.Now.AddDays(2).ToShortDateString()
                     },
                 new Evento(){
                             EventoId= 3,
                             Tema="Angular e .net Core",
                             Local="São Paulo",
                             Lote="1º Lote",
-                            QtdPessoas=2000
+                            QtdPessoas=2000,
+                            DataEvento= DateTime.Now.AddDays(2).ToShortDateString()
                     }
             };
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        public ActionResult<Evento> Get(int id)
         {
-            return "value";
+         var envio = new Evento[] {
+                new Evento(){
+                            EventoId= 1,
+                            Tema="Angular e .net Core",
+                            Local="São Paulo",
+                            Lote="1º Lote",
+                            QtdPessoas=2000,
+                            DataEvento= DateTime.Now.AddDays(2).ToShortDateString()
+                    },
+                new Evento(){
+                            EventoId= 2,
+                            Tema="Angular e .net Core",
+                            Local="São Paulo",
+                            Lote="1º Lote",
+                            QtdPessoas=2000,
+                            DataEvento= DateTime.Now.AddDays(2).ToShortDateString()
+                    },
+                new Evento(){
+                            EventoId= 3,
+                            Tema="Angular e .net Core",
+                            Local="São Paulo",
+                            Lote="1º Lote",
+                            QtdPessoas=2000,
+                            DataEvento= DateTime.Now.AddDays(2).ToShortDateString()
+                    }
+            };
+
+            return envio.Where(x=>x.EventoId== id).FirstOrDefault();
         }
 
         // POST api/values
