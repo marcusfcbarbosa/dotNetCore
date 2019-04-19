@@ -1,0 +1,44 @@
+asp .net Core
+
+1- verificar se possui .net Core
+dotnet --version
+
+2 - .net core console
+	dotnet new console -n NomeDaAplicacao
+	
+
+web
+dotnet new web -n [nomedo projeto web]ProAgil.Web
+
+MVC
+dotnet new mvc -n [nomedo projeto mvc]
+
+webApi
+dotnet new webapi -n ProAgil.WebApi [nomedo projeto api]
+
+rodar a aplicação
+dotnet run 
+--
+1 - criar a migrations (equivalente ao Enable-migrations)
+dotnet ef migrations add init
+
+2 - executa a migrations
+dotnet ef database update
+
+--1 não tenho acesso aos dados
+--2 não consigo debugar...RETORNAR A AULA 19
+
+
+select * from Eventos
+insert into Eventos(Local,DataEvento,Tema,QtdPessoas,Lote,ImgUrl)
+values('Sao paulo','11/04/2019','angular',200,'primeiro lote','https://www.udemy.com/angular-dotnetcore-efcore/learn/v4/content')
+
+insert into Eventos(Local,DataEvento,Tema,QtdPessoas,Lote,ImgUrl)
+values('Sao paulo','11/04/2019','angular',210,'segundo lote','https://www.udemy.com/angular-dotnetcore-efcore/learn/v4/content')
+
+insert into Eventos(Local,DataEvento,Tema,QtdPessoas,Lote,ImgUrl)
+values('Sao paulo','11/04/2019','angular',210,'terceiro lote','https://www.udemy.com/angular-dotnetcore-efcore/learn/v4/content')
+
+
+
+.net core ,EF Core Data Context, tasks, asp .net Empty web Core
