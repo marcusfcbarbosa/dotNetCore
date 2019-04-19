@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using ProAgil.WebApi.Data;
 using ProAgil.WebApi.Model;
 
 namespace ProAgil.WebApi.Controllers
@@ -11,70 +12,82 @@ namespace ProAgil.WebApi.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
+        private readonly DataContext _context;
+        public ValuesController(DataContext context)
+        {
+            _context = context;
+        }
+
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<Evento>> Get()
         {
-            return new Evento[] {
-                new Evento(){
-                            EventoId= 1,
-                            Tema="Angular e .net Core",
-                            Local="São Paulo",
-                            Lote="1º Lote",
-                            QtdPessoas=2000,
-                            DataEvento= DateTime.Now.AddDays(2).ToShortDateString()
-                    },
-                new Evento(){
-                            EventoId= 2,
-                            Tema="Angular e .net Core",
-                            Local="São Paulo",
-                            Lote="1º Lote",
-                            QtdPessoas=2000,
-                            DataEvento= DateTime.Now.AddDays(2).ToShortDateString()
-                    },
-                new Evento(){
-                            EventoId= 3,
-                            Tema="Angular e .net Core",
-                            Local="São Paulo",
-                            Lote="1º Lote",
-                            QtdPessoas=2000,
-                            DataEvento= DateTime.Now.AddDays(2).ToShortDateString()
-                    }
-            };
+
+            return _context.Eventos.ToList();
+
+            // return new Evento[] {
+            //     new Evento(){
+            //                 EventoId= 1,
+            //                 Tema="Angular e .net Core",
+            //                 Local="São Paulo",
+            //                 Lote="1º Lote",
+            //                 QtdPessoas=2000,
+            //                 DataEvento= DateTime.Now.AddDays(2).ToShortDateString()
+            //         },
+            //     new Evento(){
+            //                 EventoId= 2,
+            //                 Tema="Angular e .net Core",
+            //                 Local="São Paulo",
+            //                 Lote="1º Lote",
+            //                 QtdPessoas=2000,
+            //                 DataEvento= DateTime.Now.AddDays(2).ToShortDateString()
+            //         },
+            //     new Evento(){
+            //                 EventoId= 3,
+            //                 Tema="Angular e .net Core",
+            //                 Local="São Paulo",
+            //                 Lote="1º Lote",
+            //                 QtdPessoas=2000,
+            //                 DataEvento= DateTime.Now.AddDays(2).ToShortDateString()
+            //         }
+            // };
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
         public ActionResult<Evento> Get(int id)
         {
-         var envio = new Evento[] {
-                new Evento(){
-                            EventoId= 1,
-                            Tema="Angular e .net Core",
-                            Local="São Paulo",
-                            Lote="1º Lote",
-                            QtdPessoas=2000,
-                            DataEvento= DateTime.Now.AddDays(2).ToShortDateString()
-                    },
-                new Evento(){
-                            EventoId= 2,
-                            Tema="Angular e .net Core",
-                            Local="São Paulo",
-                            Lote="1º Lote",
-                            QtdPessoas=2000,
-                            DataEvento= DateTime.Now.AddDays(2).ToShortDateString()
-                    },
-                new Evento(){
-                            EventoId= 3,
-                            Tema="Angular e .net Core",
-                            Local="São Paulo",
-                            Lote="1º Lote",
-                            QtdPessoas=2000,
-                            DataEvento= DateTime.Now.AddDays(2).ToShortDateString()
-                    }
-            };
 
-            return envio.Where(x=>x.EventoId== id).FirstOrDefault();
+            return _context.Eventos.FirstOrDefault(x=>x.EventoId==id);
+
+            // var envio = new Evento[] {
+            //     new Evento(){
+            //                 EventoId= 1,
+            //                 Tema="Angular e .net Core",
+            //                 Local="São Paulo",
+            //                 Lote="1º Lote",
+            //                 QtdPessoas=2000,
+            //                 DataEvento= DateTime.Now.AddDays(2).ToShortDateString()
+            //         },
+            //     new Evento(){
+            //                 EventoId= 2,
+            //                 Tema="Angular e .net Core",
+            //                 Local="São Paulo",
+            //                 Lote="1º Lote",
+            //                 QtdPessoas=2000,
+            //                 DataEvento= DateTime.Now.AddDays(2).ToShortDateString()
+            //         },
+            //     new Evento(){
+            //                 EventoId= 3,
+            //                 Tema="Angular e .net Core",
+            //                 Local="São Paulo",
+            //                 Lote="1º Lote",
+            //                 QtdPessoas=2000,
+            //                 DataEvento= DateTime.Now.AddDays(2).ToShortDateString()
+            //         }
+            // };
+
+            // return envio.Where(x => x.EventoId == id).FirstOrDefault();
         }
 
         // POST api/values
