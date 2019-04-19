@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ProAgil.WebApi.Data;
 using ProAgil.WebApi.Model;
@@ -13,6 +14,8 @@ namespace ProAgil.WebApi.Controllers
     public class ValuesController : ControllerBase
     {
         private readonly DataContext _context;
+        private object retur;
+
         public ValuesController(DataContext context)
         {
             _context = context;
@@ -20,74 +23,25 @@ namespace ProAgil.WebApi.Controllers
 
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<Evento>> Get()
+        public IActionResult Get()
         {
-
-            return _context.Eventos.ToList();
-
-            // return new Evento[] {
-            //     new Evento(){
-            //                 EventoId= 1,
-            //                 Tema="Angular e .net Core",
-            //                 Local="São Paulo",
-            //                 Lote="1º Lote",
-            //                 QtdPessoas=2000,
-            //                 DataEvento= DateTime.Now.AddDays(2).ToShortDateString()
-            //         },
-            //     new Evento(){
-            //                 EventoId= 2,
-            //                 Tema="Angular e .net Core",
-            //                 Local="São Paulo",
-            //                 Lote="1º Lote",
-            //                 QtdPessoas=2000,
-            //                 DataEvento= DateTime.Now.AddDays(2).ToShortDateString()
-            //         },
-            //     new Evento(){
-            //                 EventoId= 3,
-            //                 Tema="Angular e .net Core",
-            //                 Local="São Paulo",
-            //                 Lote="1º Lote",
-            //                 QtdPessoas=2000,
-            //                 DataEvento= DateTime.Now.AddDays(2).ToShortDateString()
-            //         }
-            // };
+            try
+            {
+                var results = _context.Eventos.ToList();
+                return Ok(results);
+            }
+            catch (Exception ex)
+            {
+                return this.StatusCode(StatusCodes.Status500InternalServerError, "Falha interna");
+            }
         }
 
-        // GET api/values/5
+        
         [HttpGet("{id}")]
-        public ActionResult<Evento> Get(int id)
+        public IActionResult Get(int id)
         {
-
-            return _context.Eventos.FirstOrDefault(x=>x.EventoId==id);
-
-            // var envio = new Evento[] {
-            //     new Evento(){
-            //                 EventoId= 1,
-            //                 Tema="Angular e .net Core",
-            //                 Local="São Paulo",
-            //                 Lote="1º Lote",
-            //                 QtdPessoas=2000,
-            //                 DataEvento= DateTime.Now.AddDays(2).ToShortDateString()
-            //         },
-            //     new Evento(){
-            //                 EventoId= 2,
-            //                 Tema="Angular e .net Core",
-            //                 Local="São Paulo",
-            //                 Lote="1º Lote",
-            //                 QtdPessoas=2000,
-            //                 DataEvento= DateTime.Now.AddDays(2).ToShortDateString()
-            //         },
-            //     new Evento(){
-            //                 EventoId= 3,
-            //                 Tema="Angular e .net Core",
-            //                 Local="São Paulo",
-            //                 Lote="1º Lote",
-            //                 QtdPessoas=2000,
-            //                 DataEvento= DateTime.Now.AddDays(2).ToShortDateString()
-            //         }
-            // };
-
-            // return envio.Where(x => x.EventoId == id).FirstOrDefault();
+            var result = _context.Eventos.FirstOrDefault(x => x.EventoId == id);
+            return Ok(result);
         }
 
         // POST api/values

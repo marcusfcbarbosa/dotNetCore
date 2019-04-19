@@ -37,6 +37,7 @@ namespace ProAgil.WebApi
         {
             if (env.IsDevelopment())
             {
+                //esse app.UseDeveloperExceptionPage habilita uma tela amigavel para erros, detalhes do erro
                 app.UseDeveloperExceptionPage();
             }
             else
