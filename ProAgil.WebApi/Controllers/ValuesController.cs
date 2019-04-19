@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using ProAgil.WebApi.Data;
 using ProAgil.WebApi.Model;
 
@@ -23,11 +24,11 @@ namespace ProAgil.WebApi.Controllers
 
         // GET api/values
         [HttpGet]
-        public IActionResult Get()
+        public async Task<IActionResult> Get()
         {
             try
             {
-                var results = _context.Eventos.ToList();
+                var results = await _context.Eventos.ToListAsync();
                 return Ok(results);
             }
             catch (Exception ex)
@@ -38,9 +39,9 @@ namespace ProAgil.WebApi.Controllers
 
         
         [HttpGet("{id}")]
-        public IActionResult Get(int id)
+        public async Task<IActionResult> Get(int id)
         {
-            var result = _context.Eventos.FirstOrDefault(x => x.EventoId == id);
+            var result = await _context.Eventos.FirstOrDefaultAsync(x => x.EventoId == id);
             return Ok(result);
         }
 
