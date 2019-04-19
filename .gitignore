@@ -1,1 +1,6 @@
 
+bin
+obj
+.vscode
+.cs
+.DS_Store
