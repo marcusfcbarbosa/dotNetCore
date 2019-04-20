@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { TouchSequence } from 'selenium-webdriver';
 
 @Component({
   selector: 'app-eventos',
@@ -7,25 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EventosComponent implements OnInit {
 
-  eventos: any = [
-    {
-      EventoId: 1,
-      Tema: 'Angular',
-      Local: 'São Paulo'
-      },
-      {
-       EventoId: 2,
-       Tema: 'Angular',
-      Local: 'Bahia'
-      },
-      {
-         EventoId: 3,
-          Tema: 'Angular',
-          Local: 'MG'
-      }
+  eventos: any;
+  constructor(private http: HttpClient) { 
+  }
+  
+  getEventos(){
+    this.http.get('http://localhost:5001/api/values').subscribe(response => {
+      this.eventos = response;
+    }, error =>{
+      console.log(error);
+    }
+    );
+  }
 
-];
-  constructor() { }
+  
 
   ngOnInit() {
     
