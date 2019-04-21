@@ -30,6 +30,8 @@ namespace ProAgil.WebApi
             //Ao injetar o DataContext dessa forma, ja possibilita injetar o contexto dentro das controllers
             services.AddDbContext<DataContext>(x=>x.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            //Permitindo requisição cruzada de outras aplicaçoes que não somente a local
+             services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,6 +49,7 @@ namespace ProAgil.WebApi
             }
 
             //app.UseHttpsRedirection();
+            app.UseCors(x=> x.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
             app.UseMvc();
         }
     }
