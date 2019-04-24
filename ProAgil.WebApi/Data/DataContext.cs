@@ -8,8 +8,6 @@ namespace ProAgil.WebApi.Data
         public DataContext(DbContextOptions<DataContext> options) : base(options){
            
         }
-
         public DbSet<Evento> Eventos { get; set; }
-        
     }
 }

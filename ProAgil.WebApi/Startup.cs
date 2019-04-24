@@ -50,6 +50,7 @@ namespace ProAgil.WebApi
 
             //app.UseHttpsRedirection();
             app.UseCors(x=> x.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+            app.UseStaticFiles();//Para poder trabalhar com imagens, dentro do diretorio wwwroot
             app.UseMvc();
         }
     }
