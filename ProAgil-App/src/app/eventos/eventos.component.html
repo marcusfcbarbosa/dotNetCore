@@ -1,14 +1,30 @@
-<p>
-  eventos works!
-</p>
-
-<div *ngFor="let evento of eventos">
-      {{evento.eventoId}}<br />
-      {{evento.local}}<br />
-      {{evento.dataEvento}}<br />
-      {{evento.tema}}<br />
-      {{evento.qtdPessoas}}<br />
-      {{evento.lote}}<br />
-      {{evento.imgUrl}}<br />
-  <br /><hr>
+<form class="fomr-inline" action="">
+  <div class="form-group mb-2">
+    <input type="text" class="form-control mr-2" placeholder="buscar">
+    <button class="btn-btn-outline-sucess">buscar</button>
   </div>
+</form>
+<table class="table table-striped">
+  <thead class="thead-dark">
+    <tr>
+      <th>#</th>
+      <th>Tema</th>
+      <th>Local</th>
+      <th>Data</th>
+      <th>Qtd Pessoas</th>
+      <th>Lote</th>
+      <th>Opções</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
