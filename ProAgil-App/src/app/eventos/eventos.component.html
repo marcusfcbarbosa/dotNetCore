@@ -3,8 +3,7 @@
     Filtro: <input type="text"
      class="form-control mr-2"
      placeholder="buscar"
-     [(ngModel)]="filtroLista">
-
+     [(ngModel)]="filtroLista" >
     <button class="btn-btn-outline-sucess">buscar</button>
   </div>
 </div>
@@ -29,7 +28,7 @@
   <!-- Só renderiza a lista se tiver elementos dentra da lista
   *ngIf="eventos.length && eventos"
   -->
-  <tbody *ngIf="eventos.length && eventos">
+  <tbody *ngIf="eventos.length && eventosFiltrados">
     <tr *ngFor="let evento of eventos">
         <td>
             <img 
@@ -39,7 +38,7 @@
             [style.margin.px]="imagemMargem"/> 
           </td>
       <td>{{evento.eventoId}}</td>
-      <td>{{evento.tema | uppercase }}</td>
+      <td>{{evento.tema}}</td>
       <td>{{evento.Local}}</td>
       <td>{{evento.dataEvento}}</td>
       <td>{{evento.qtdPessoas}}</td>
