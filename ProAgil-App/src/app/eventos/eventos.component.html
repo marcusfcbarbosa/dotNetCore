@@ -24,8 +24,7 @@
     <tr *ngFor="let evento of eventos">
       <td></td>
       <td>
-        <img src="http://localhost:5001/img/img1.jpg" /> 
-        <!-- {{evento.imgUrl}} -->
+        <img src="http://localhost:5001/img/{{evento.imgUrl}}" /> 
       </td>
       <td>{{evento.tema}}</td>
       <td>{{evento.Local}}</td>
