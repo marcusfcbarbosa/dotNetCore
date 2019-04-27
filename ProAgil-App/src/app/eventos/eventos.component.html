@@ -1,9 +1,14 @@
-<form class="fomr-inline" action="">
+<div class="fomr-inline" action="">
   <div class="form-group mb-2">
-    <input type="text" class="form-control mr-2" placeholder="buscar">
+    Filtro: <input type="text"
+     class="form-control mr-2"
+     placeholder="buscar"
+     [(ngModel)]="filtroLista">
+
     <button class="btn-btn-outline-sucess">buscar</button>
   </div>
-</form>
+</div>
+<h3>Filtro:{{filtroLista}} </h3>
 <table class="table table-striped">
   <thead class="thead-light">
     <tr>
@@ -34,11 +39,11 @@
             [style.margin.px]="imagemMargem"/> 
           </td>
       <td>{{evento.eventoId}}</td>
-      <td>{{evento.tema}}</td>
+      <td>{{evento.tema | uppercase }}</td>
       <td>{{evento.Local}}</td>
       <td>{{evento.dataEvento}}</td>
       <td>{{evento.qtdPessoas}}</td>
-      <td>{{evento.lote}}</td>
+      <td>{{evento.lote | uppercase }}</td>
       <td>
         <button class="btn btn-sucess"></button>
         <button class="btn btn-danger"></button>
