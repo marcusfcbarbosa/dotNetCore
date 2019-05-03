@@ -1,13 +1,13 @@
 <div class="fomr-inline" action="">
   <div class="form-group mb-2">
     Filtro: <input type="text"
-     class="form-control mr-2"
+     class="form-control"
      placeholder="buscar"
      [(ngModel)]="filtroLista" >
     <button class="btn-btn-outline-sucess">buscar</button>
   </div>
 </div>
-<h3>Filtro:{{filtroLista}} </h3>
+
 <table class="table table-striped">
   <thead class="thead-light">
     <tr>
@@ -28,8 +28,9 @@
   <!-- Só renderiza a lista se tiver elementos dentra da lista
   *ngIf="eventos.length && eventos"
   -->
-  <tbody *ngIf="eventos.length && eventosFiltrados">
-    <tr *ngFor="let evento of eventos">
+  
+  <tbody *ngIf="eventos.length && eventos">
+    <tr *ngFor="let evento of eventosFiltrados">
         <td>
             <img 
             *ngIf="mostrarImagem"
