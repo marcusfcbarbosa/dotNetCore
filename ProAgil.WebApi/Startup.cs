@@ -11,7 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using ProAgil.WebApi.Data;
+using ProAgil.Repository.Context;
 
 namespace ProAgil.WebApi
 {
@@ -28,7 +28,7 @@ namespace ProAgil.WebApi
         public void ConfigureServices(IServiceCollection services)
         {
             //Ao injetar o DataContext dessa forma, ja possibilita injetar o contexto dentro das controllers
-            services.AddDbContext<DataContext>(x=>x.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<ProAgilContext>(x=>x.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             //Permitindo requisição cruzada de outras aplicaçoes que não somente a local
              services.AddCors();

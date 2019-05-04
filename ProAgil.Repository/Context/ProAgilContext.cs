@@ -1,7 +1,9 @@
 using System;
 using System.Linq;
+using Flunt.Notifications;
 using Microsoft.EntityFrameworkCore;
 using ProAgil.Domain.Entityes;
+using ProAgil.Domain.ValueObjects;
 
 namespace ProAgil.Repository.Context
 {
@@ -18,6 +20,8 @@ namespace ProAgil.Repository.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder){
                 modelBuilder.Entity<PalestranteEvento>()
                 .HasKey(PE=> new {PE.EventoId, PE.PalestranteId});
+                modelBuilder.Ignore<Notification>();
+                modelBuilder.Ignore<Email>();
         }
 
     }

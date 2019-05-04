@@ -5,6 +5,7 @@ namespace ProAgil.Domain.Entityes
 {
     public class Lote : Entity
     {
+        protected Lote(){}
         public Lote(string nome,
          decimal preco, DateTime? dataInicio, 
         DateTime? dataFim, 

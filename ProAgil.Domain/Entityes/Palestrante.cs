@@ -8,6 +8,7 @@ namespace ProAgil.Domain.Entityes
 {
     public class Palestrante : Entity
     {
+        protected Palestrante(){}
         private readonly IList<RedeSocial> _redesSociais;
         public Palestrante(string nome, string miniCurriculo, string imgUrl, string telefone, Email email)
         {

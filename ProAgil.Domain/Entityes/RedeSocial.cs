@@ -9,6 +9,7 @@ namespace ProAgil.Domain.Entityes
 {
     public class RedeSocial : Entity
     {
+        protected RedeSocial(){}
         public RedeSocial(string nome, string url, Evento evento = null, Palestrante palestrante = null)
         {
             Nome = nome;

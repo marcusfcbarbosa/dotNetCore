@@ -17,7 +17,7 @@ namespace ProAgil.Domain.Entityes
                 string imgUrl,
                 string telefone,
                 Email email){
-                AddNotifications(email);
+                //AddNotifications(email);
                 this.Local = local;
                 this.DataEvento = dataEvento;
                 this.Tema = tema;
@@ -28,7 +28,6 @@ namespace ProAgil.Domain.Entityes
                 _redesSociais = new List<RedeSocial>();
                 PalestranteEventos = new List<PalestranteEvento>();
         }
-        public int EventoId { get; private set; }
         public string Local { get; private set; }
         public DateTime DataEvento { get; private set; }
         public string Tema { get; private set; }

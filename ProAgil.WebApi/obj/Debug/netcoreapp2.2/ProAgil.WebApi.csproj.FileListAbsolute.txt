@@ -17,3 +17,5 @@ C:\Users\marcu\Desktop\netCore\ProAgil.WebApi\bin\Debug\netcoreapp2.2\ProAgil.Re
 C:\Users\marcu\Desktop\netCore\ProAgil.WebApi\bin\Debug\netcoreapp2.2\ProAgil.Domain.pdb
 C:\Users\marcu\Desktop\netCore\ProAgil.WebApi\bin\Debug\netcoreapp2.2\ProAgil.Repository.pdb
 C:\Users\marcu\Desktop\netCore\ProAgil.WebApi\obj\Debug\netcoreapp2.2\ProAgil.WebApi.csproj.CopyComplete
+C:\Users\marcu\Desktop\netCore\ProAgil.WebApi\bin\Debug\netcoreapp2.2\ProAgil.Shared.dll
+C:\Users\marcu\Desktop\netCore\ProAgil.WebApi\bin\Debug\netcoreapp2.2\ProAgil.Shared.pdb
