@@ -28,11 +28,9 @@ namespace ProAgil.Domain.Entityes
         public Email Email { get; set; }
         public IReadOnlyCollection<RedeSocial>  RedesSociais {get {return _redesSociais.ToArray(); }}
 
-        public List<PalestranteEvento> PalestranteEventos { get; set; }
-
+        public List<PalestranteEvento> PalestranteEventos { get; private set; }
         public void AdicionaRedeSocial(RedeSocial redeSocial){
             this._redesSociais.Add(redeSocial);
         }
-
     }
 }

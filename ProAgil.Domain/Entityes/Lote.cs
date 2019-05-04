@@ -24,6 +24,7 @@ namespace ProAgil.Domain.Entityes
 
             public DateTime? DataFim { get; private set; }
             public int Quantidade { get; private set; }
+            public int EventoId { get; private set; }
             public Evento Evento {get; private set;}
     }
 }

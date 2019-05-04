@@ -44,8 +44,6 @@ namespace ProAgil.Domain.Entityes
         public void AdicionaLote(Lote lote){
                 this._lotes.Add(lote);
         }
-        
-        public List<PalestranteEvento> PalestranteEventos { get; set; }
-
+         public List<PalestranteEvento> PalestranteEventos { get; private set; }
     }
 }
