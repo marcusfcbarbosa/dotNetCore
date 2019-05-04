@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProAgil.WebApi.Data;
-using ProAgil.WebApi.Model;
+//using ProAgil.WebApi.Model;
 
 namespace ProAgil.WebApi.Controllers
 {

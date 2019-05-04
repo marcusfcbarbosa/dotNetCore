@@ -2,6 +2,15 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v2.2": {
+      "Flunt/1.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Flunt.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Flunt.dll": {}
+        }
+      },
       "Microsoft.AspNet.WebApi.Client/5.2.6": {
         "type": "package",
         "dependencies": {
@@ -4601,6 +4610,10 @@
       "ProAgil.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "Flunt": "1.0.3",
+          "ProAgil.Shared": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/ProAgil.Domain.dll": {}
         },
@@ -4612,7 +4625,8 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
-          "ProAgil.Domain": "1.0.0"
+          "ProAgil.Domain": "1.0.0",
+          "ProAgil.Shared": "1.0.0"
         },
         "compile": {
           "bin/placeholder/ProAgil.Repository.dll": {}
@@ -4620,10 +4634,35 @@
         "runtime": {
           "bin/placeholder/ProAgil.Repository.dll": {}
         }
+      },
+      "ProAgil.Shared/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "Flunt": "1.0.3"
+        },
+        "compile": {
+          "bin/placeholder/ProAgil.Shared.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ProAgil.Shared.dll": {}
+        }
       }
     }
   },
   "libraries": {
+    "Flunt/1.0.3": {
+      "sha512": "7/wzY8uowlaM5Xydj428PdF1yp1bfuSEm5ONqnx4xiEbPv/zfGLNQoJQVNzU7cqmt3MmvJEGrCCEg7T1NHFdmA==",
+      "type": "package",
+      "path": "flunt/1.0.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "flunt.1.0.3.nupkg.sha512",
+        "flunt.nuspec",
+        "lib/netstandard2.0/Flunt.dll"
+      ]
+    },
     "Microsoft.AspNet.WebApi.Client/5.2.6": {
       "sha512": "owAlEIUZXWSnkK8Z1c+zR47A0X6ykF4XjbPok4lQKNuciUfHLGPd6QnI+rt/8KlQ17PmF+I4S3f+m+Qe4IvViw==",
       "type": "package",
@@ -12453,6 +12492,11 @@
       "type": "project",
       "path": "../ProAgil.Repository/ProAgil.Repository.csproj",
       "msbuildProject": "../ProAgil.Repository/ProAgil.Repository.csproj"
+    },
+    "ProAgil.Shared/1.0.0": {
+      "type": "project",
+      "path": "../ProAgil.Shared/ProAgil.Shared.csproj",
+      "msbuildProject": "../ProAgil.Shared/ProAgil.Shared.csproj"
     }
   },
   "projectFileDependencyGroups": {
