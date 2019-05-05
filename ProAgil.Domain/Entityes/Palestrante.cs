@@ -10,7 +10,11 @@ namespace ProAgil.Domain.Entityes
     {
         protected Palestrante(){}
         private readonly IList<RedeSocial> _redesSociais;
-        public Palestrante(string nome, string miniCurriculo, string imgUrl, string telefone, Email email)
+        public Palestrante(string nome,
+         string miniCurriculo,
+         string imgUrl, 
+         string telefone,
+          Email email)
         {
             Nome = nome;
             MiniCurriculo = miniCurriculo;
@@ -23,7 +27,6 @@ namespace ProAgil.Domain.Entityes
         public string Nome { get; private set; }
         public string MiniCurriculo { get; private set; }
         public string ImgUrl { get; private set; }
-
         public string Telefone { get; private set; }
 
         public Email Email { get; set; }
