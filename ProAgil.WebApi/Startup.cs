@@ -39,6 +39,7 @@ namespace ProAgil.WebApi
 
 
         public void registrandoDependencias(IServiceCollection services){
+                
                 services.AddScoped<IEventoRepository,EventoRepository>();
                 services.AddScoped<IPalestranteRepository,PalestranteRepository>();
                 services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));

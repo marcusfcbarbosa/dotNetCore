@@ -63,6 +63,11 @@ namespace ProAgil.Repository.Repository
             return await query.FirstOrDefaultAsync();
         }
 
+        public async Task<bool> SaveChangesAsync()
+        {
+            return await SaveChangesAsync();
+        }
+
         
     }
 }
