@@ -18,6 +18,5 @@ namespace ProAgil.Domain.ValueObjects
             );
         }
         public String Address { get; private set; }
-
     }
 }

@@ -4,7 +4,6 @@ using Flunt.Notifications;
 using Microsoft.EntityFrameworkCore;
 using ProAgil.Domain.Entityes;
 using ProAgil.Domain.ValueObjects;
-
 namespace ProAgil.Repository.Context
 {
     public class ProAgilContext : DbContext
@@ -23,6 +22,5 @@ namespace ProAgil.Repository.Context
                 modelBuilder.Ignore<Notification>();
                 modelBuilder.Ignore<Email>();
         }
-
     }
 }

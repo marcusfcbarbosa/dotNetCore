@@ -17,7 +17,7 @@ namespace ProAgil.Domain.Entityes
                 string imgUrl,
                 string telefone,
                 Email email){
-                //AddNotifications(email);
+                AddNotifications(email);
                 this.Local = local;
                 this.DataEvento = dataEvento;
                 this.Tema = tema;

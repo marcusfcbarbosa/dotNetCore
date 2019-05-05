@@ -28,7 +28,7 @@ namespace ProAgil.WebApi.Controllers
             try
             {
                  var results = await _context.Eventos.ToListAsync();
-                return Ok("");
+                return Ok(results);
             }
             catch (Exception ex)
             {
@@ -41,7 +41,7 @@ namespace ProAgil.WebApi.Controllers
         public async Task<IActionResult> Get(Guid id)
         {
             var result = await _context.Eventos.FirstOrDefaultAsync(x => x.Id == id);
-            return Ok("result");
+            return Ok(result);
         }
 
         // POST api/values
