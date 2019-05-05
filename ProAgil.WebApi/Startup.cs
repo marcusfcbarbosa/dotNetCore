@@ -12,6 +12,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using ProAgil.Repository.Context;
+using ProAgil.Repository.Interfaces;
+using ProAgil.Repository.Repository;
 
 namespace ProAgil.WebApi
 {
@@ -29,9 +31,17 @@ namespace ProAgil.WebApi
         {
             //Ao injetar o DataContext dessa forma, ja possibilita injetar o contexto dentro das controllers
             services.AddDbContext<ProAgilContext>(x=>x.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
+            registrandoDependencias(services);
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             //Permitindo requisição cruzada de outras aplicaçoes que não somente a local
              services.AddCors();
+        }
+
+
+        public void registrandoDependencias(IServiceCollection services){
+                services.AddScoped<IEventoRepository,EventoRepository>();
+                services.AddScoped<IPalestranteRepository,PalestranteRepository>();
+                services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

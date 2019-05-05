@@ -7,8 +7,8 @@ namespace ProAgil.Repository.Interfaces
     public interface IEventoRepository
     {
          Task<Evento[]>  GetAllEventosAsyncBytTema(string tema, bool includePalestrantes);
-         Task<Evento[]>  GetAllEventosAsync();
-         Task<Evento>  GetAllEventosAsyncById(Guid id);
-         Task<Evento>  GetAllEventosAsyncById(int id);
+         Task<Evento[]>  GetAllEventosAsync(bool includePalestrantes = false);
+         Task<Evento>  GetAllEventosAsyncById(Guid id,bool includePalestrantes = false);
+
     }
 }

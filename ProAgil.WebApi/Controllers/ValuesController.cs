@@ -14,7 +14,6 @@ namespace ProAgil.WebApi.Controllers
     public class ValuesController : ControllerBase
     {
         private readonly ProAgilContext _context;
-        private object retur;
 
         public ValuesController(ProAgilContext context)
         {

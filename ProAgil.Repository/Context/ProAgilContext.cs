@@ -8,7 +8,8 @@ namespace ProAgil.Repository.Context
 {
     public class ProAgilContext : DbContext
     {
-        public ProAgilContext(DbContextOptions<ProAgilContext> options) : base(options){
+        public ProAgilContext(DbContextOptions<ProAgilContext> options) 
+            : base(options){
         }
         public DbSet<Evento> Eventos { get; set; }
         public DbSet<Lote> Lotes { get; set; }

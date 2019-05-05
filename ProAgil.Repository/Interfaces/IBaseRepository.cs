@@ -4,13 +4,13 @@ using System.Threading.Tasks;
 
 namespace ProAgil.Repository.Interfaces
 {
-    public interface IBaseRepository
+    public interface IBaseRepository<T> where T : class
     {
-        void Add<T>(T entity) where T : class;
-        void Update<T>(T entity) where T : class;
-        void Delete<T>(T entity) where T : class;
-        T GetById<T>(long id) where T : class;
-        T GetById<T>(Guid id) where T : class;
+        void Add(T entity);
+        void Update(T entity);
+        void Delete(T entity);
+        T GetById(long id);
+        T GetById(Guid id);
         Task<bool> SaveChangesAsync();
     }
 }
