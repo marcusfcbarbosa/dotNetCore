@@ -42,3 +42,6 @@ values('Sao paulo','11/04/2019','angular',210,'terceiro lote','https://www.udemy
 
 
 .net core ,EF Core Data Context, tasks, asp .net Empty web Core
+=================
+executar uma aplicação angular
+ng serve -o

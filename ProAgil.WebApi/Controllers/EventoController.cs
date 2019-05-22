@@ -9,14 +9,14 @@ namespace ProAgil.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class EventoController: ControllerBase 
+    public class EventoController: ControllerBase
     {
         private readonly IEventoRepository _eventoRepository;
         public EventoController(IEventoRepository eventoRepository){
                 _eventoRepository = eventoRepository;
         }
 
-        [HttpGet]
+        [HttpGet("")]
         public async Task<IActionResult> Get()
         {
             try
@@ -37,8 +37,8 @@ namespace ProAgil.WebApi.Controllers
             return Ok(result);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Post(Evento model){
+        [HttpPost("")]
+        public async Task<IActionResult> Post([FromBody]Evento model){
             try{
                     //Depois ver o Post como ta ficando
                     if(await _eventoRepository.SaveChangesAsync())

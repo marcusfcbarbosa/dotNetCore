@@ -14,6 +14,7 @@ using Microsoft.Extensions.Options;
 using ProAgil.Repository.Context;
 using ProAgil.Repository.Interfaces;
 using ProAgil.Repository.Repository;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace ProAgil.WebApi
 {
@@ -32,6 +33,15 @@ namespace ProAgil.WebApi
             //Ao injetar o DataContext dessa forma, ja possibilita injetar o contexto dentro das controllers
             services.AddDbContext<ProAgilContext>(x=>x.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
             registrandoDependencias(services);
+
+            //adicionando a documentação dos endpoints
+            services.AddSwaggerGen(options =>
+            {
+                options.DescribeAllEnumsAsStrings();
+	            options.DescribeAllParametersInCamelCase();
+                options.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
+            });
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             //Permitindo requisição cruzada de outras aplicaçoes que não somente a local
              services.AddCors();
@@ -58,6 +68,14 @@ namespace ProAgil.WebApi
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c =>
+	        {
+	        	c.SwaggerEndpoint("/swagger/v1/swagger.json", "My First Swagger");
+	        });
+            
 
             //app.UseHttpsRedirection();
             app.UseCors(x=> x.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
