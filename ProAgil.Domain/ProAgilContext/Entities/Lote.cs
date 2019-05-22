@@ -19,7 +19,7 @@ namespace ProAgil.Domain.ProAgilContext.Entities
             Evento = evento;
         }
 
-        public string Nome { get; private set; }
+            public string Nome { get; private set; }
             public decimal Preco { get; private set; }
             public DateTime? DataInicio { get; private set; }
 

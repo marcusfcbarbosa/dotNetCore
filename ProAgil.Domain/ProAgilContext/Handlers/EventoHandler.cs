@@ -15,7 +15,7 @@ namespace ProAgil.Domain.ProAgilContext.Handlers
     {
         private readonly IEventoRepository _eventoRepository;
         public EventoHandler(IEventoRepository eventoRepository){
-            _eventoRepository =eventoRepository;
+            _eventoRepository = eventoRepository;
         }
 
         public ICommandResult Handle(CriaEventoCommand command)
