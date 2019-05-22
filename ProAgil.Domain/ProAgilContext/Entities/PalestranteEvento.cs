@@ -1,6 +1,6 @@
 using ProAgil.Shared.Entities;
 
-namespace ProAgil.Domain.Entityes
+namespace ProAgil.Domain.ProAgilContext.Entities
 {
     public class PalestranteEvento : Entity
     {

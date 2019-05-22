@@ -2,9 +2,9 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using ProAgil.Domain.Entityes;
+using ProAgil.Domain.ProAgilContext.Entities;
 using ProAgil.Repository.Context;
-using ProAgil.Repository.Interfaces;
+using ProAgil.Domain.ProAgilContext.Repositories.Interfaces;
 
 namespace ProAgil.Repository.Repository
 {

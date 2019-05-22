@@ -1,10 +1,10 @@
 using System;
 using System.Threading.Tasks;
-using ProAgil.Domain.Entityes;
+using ProAgil.Domain.ProAgilContext.Entities;
 
-namespace ProAgil.Repository.Interfaces
+namespace ProAgil.Domain.ProAgilContext.Repositories.Interfaces
 {
-    public interface IPalestranteRepository
+    public interface IPalestranteRepository: IBaseRepository<Palestrante>
     {
          Task<Palestrante[]>  GetAllPalestrantesAsyncByName(string name);
          Task<Palestrante[]>  GetAllPalestrantesAsync(bool includeEvento =false);

@@ -1,7 +1,7 @@
 using System;
 using ProAgil.Shared.Entities;
 
-namespace ProAgil.Domain.Entityes
+namespace ProAgil.Domain.ProAgilContext.Entities
 {
     public class Lote : Entity
     {

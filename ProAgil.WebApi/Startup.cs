@@ -11,8 +11,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using ProAgil.Domain.ProAgilContext.Repositories.Interfaces;
 using ProAgil.Repository.Context;
-using ProAgil.Repository.Interfaces;
+
 using ProAgil.Repository.Repository;
 using Swashbuckle.AspNetCore.Swagger;
 
@@ -50,6 +51,8 @@ namespace ProAgil.WebApi
 
         public void registrandoDependencias(IServiceCollection services){
                 
+                services.AddScoped<ProAgilContext,ProAgilContext>();
+
                 services.AddScoped<IEventoRepository,EventoRepository>();
                 services.AddScoped<IPalestranteRepository,PalestranteRepository>();
                 services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));

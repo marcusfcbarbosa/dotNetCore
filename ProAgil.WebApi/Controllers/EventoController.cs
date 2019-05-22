@@ -2,8 +2,9 @@ using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using ProAgil.Domain.Entityes;
-using ProAgil.Repository.Interfaces;
+using ProAgil.Domain.ProAgilContext.Commands.Inputs;
+using ProAgil.Domain.ProAgilContext.Handlers;
+using ProAgil.Domain.ProAgilContext.Repositories.Interfaces;
 
 namespace ProAgil.WebApi.Controllers
 {
@@ -11,8 +12,11 @@ namespace ProAgil.WebApi.Controllers
     [ApiController]
     public class EventoController: ControllerBase
     {
+        private readonly EventoHandler _eventoHandler;
         private readonly IEventoRepository _eventoRepository;
-        public EventoController(IEventoRepository eventoRepository){
+        public EventoController(EventoHandler eventoHandler,
+        IEventoRepository eventoRepository){
+                _eventoHandler = eventoHandler;
                 _eventoRepository = eventoRepository;
         }
 
@@ -38,16 +42,12 @@ namespace ProAgil.WebApi.Controllers
         }
 
         [HttpPost("")]
-        public async Task<IActionResult> Post([FromBody]Evento model){
+        public async Task<IActionResult> Post([FromBody]CriaEventoCommand command){
             try{
-                    //Depois ver o Post como ta ficando
-                    if(await _eventoRepository.SaveChangesAsync())
-                        return Created($"/api/evento/{model.Id}",model);
-
+                return Ok(_eventoHandler.Handle(command));
             }catch(System.Exception){
                     return this.StatusCode(StatusCodes.Status500InternalServerError, "Falha interna");
             }
-            return BadRequest();
         }
     }
 }

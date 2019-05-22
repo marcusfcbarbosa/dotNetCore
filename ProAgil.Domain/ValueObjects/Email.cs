@@ -3,16 +3,17 @@ using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using ProAgil.Shared.ValueObjects;
-using Flunt.Validations;
+using FluentValidator;
+using FluentValidator.Validation;
 
 namespace ProAgil.Domain.ValueObjects
 {
-    public class Email: ValueObject
+    public class Email : Notifiable
     {
        public Email(string address)
         {
             Address = address;
-            AddNotifications(new Contract()
+            AddNotifications(new ValidationContract()
             .Requires()
             .IsEmail(Address, "Email.Address", "E-mail inválido")
             );

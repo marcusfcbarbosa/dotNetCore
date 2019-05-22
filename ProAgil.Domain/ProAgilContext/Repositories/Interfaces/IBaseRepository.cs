@@ -2,7 +2,7 @@
 using System;
 using System.Threading.Tasks;
 
-namespace ProAgil.Repository.Interfaces
+namespace ProAgil.Domain.ProAgilContext.Repositories.Interfaces
 {
     public interface IBaseRepository<T> where T : class
     {

@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Flunt.Notifications;
+using FluentValidator;
 
 
 namespace ProAgil.Shared.Entities

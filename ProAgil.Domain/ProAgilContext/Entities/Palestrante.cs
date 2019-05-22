@@ -4,7 +4,7 @@ using ProAgil.Shared.Entities;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ProAgil.Domain.Entityes
+namespace ProAgil.Domain.ProAgilContext.Entities
 {
     public class Palestrante : Entity
     {

@@ -2,7 +2,7 @@ using System;
 using System.Linq;
 using Flunt.Notifications;
 using Microsoft.EntityFrameworkCore;
-using ProAgil.Domain.Entityes;
+using ProAgil.Domain.ProAgilContext.Entities;
 using ProAgil.Domain.ValueObjects;
 namespace ProAgil.Repository.Context
 {
