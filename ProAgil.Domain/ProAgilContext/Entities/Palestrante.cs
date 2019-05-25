@@ -22,9 +22,6 @@ namespace ProAgil.Domain.ProAgilContext.Entities
             ImgUrl = imgUrl;
             Telefone = telefone;
             Email = email;
-
-
-
             _redesSociais = new List<RedeSocial>();
             PalestranteEventos = new List<PalestranteEvento>();
         }
@@ -34,7 +31,6 @@ namespace ProAgil.Domain.ProAgilContext.Entities
         public string Telefone { get; private set; }
         public Email Email { get; private set; }
         public IReadOnlyCollection<RedeSocial>  RedesSociais {get {return _redesSociais.ToArray(); }}
-
         public List<PalestranteEvento> PalestranteEventos { get; private set; }
         public void AdicionaRedeSocial(RedeSocial redeSocial){
             this._redesSociais.Add(redeSocial);

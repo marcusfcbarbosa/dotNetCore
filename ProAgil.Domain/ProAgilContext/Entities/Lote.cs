@@ -22,7 +22,6 @@ namespace ProAgil.Domain.ProAgilContext.Entities
             public string Nome { get; private set; }
             public decimal Preco { get; private set; }
             public DateTime? DataInicio { get; private set; }
-
             public DateTime? DataFim { get; private set; }
             public int Quantidade { get; private set; }
             public int EventoId { get; private set; }
