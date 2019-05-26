@@ -18,6 +18,8 @@ namespace ProAgil.Repository.Context
         public DbSet<Lote> Lotes { get; set; }
         public DbSet<Palestrante> Palestrantes { get; set; }
         public DbSet<RedeSocial> RedeSociais { get; set; }
+        public DbSet<PalestranteEvento> PalestranteEventos { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder){
             
