@@ -10,6 +10,7 @@ namespace ProAgil.Domain.ProAgilContext.Entities
     {
         private readonly IList<Lote> _lotes;
         private readonly IList<RedeSocial> _redesSociais;
+       
         private Evento(){}
         public Evento(
                 string local,
@@ -29,7 +30,6 @@ namespace ProAgil.Domain.ProAgilContext.Entities
 
                 _lotes = new List<Lote>();
                 _redesSociais = new List<RedeSocial>();
-                PalestranteEventos = new List<PalestranteEvento>();
         }
         public string Local { get; private set; }
         public DateTime DataEvento { get; private set; }
@@ -38,16 +38,15 @@ namespace ProAgil.Domain.ProAgilContext.Entities
         public string ImgUrl { get; private set; }
         public string Telefone { get; private set; }
         public Email Email {get; private set;}
-
-
         public IReadOnlyCollection<Lote> Lotes { get { return _lotes.ToArray(); } }
         public IReadOnlyCollection<RedeSocial>  RedesSociais {get {return _redesSociais.ToArray(); }}
+        public List<PalestranteEvento>  PalestranteEventos {get;set;}
         public void AdicionaRedeSocial(RedeSocial redeSocial){
             this._redesSociais.Add(redeSocial);
         }
         public void AdicionaLote(Lote lote){
                 this._lotes.Add(lote);
         }
-         public List<PalestranteEvento> PalestranteEventos { get; private set; }
+         
     }
 }
